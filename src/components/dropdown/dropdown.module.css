@@ -1,0 +1,44 @@
+
+.jobTitle{
+    font-size: 54px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #f74843;
+    transition: all ease;
+    width: max-content;
+    margin-bottom: 4rem;
+}
+
+.jobTitle:hover{
+    color: white;
+}
+
+.descContainer{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    color: rgb(105, 102, 102);
+    font-weight: bold;
+    background: #fff;
+    padding: 5rem 2rem;
+    font-size: 14px;
+}
+
+.desc{
+    font-size: 18px;
+}
+
+.links{
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 5rem;
+}
+
+.link{
+    width: 16rem;
+    color: black;
+    font-size: 18px;
+    font-weight:bolder;
+}

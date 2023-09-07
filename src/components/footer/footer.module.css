@@ -1,0 +1,43 @@
+.container{
+    background:#f74843;
+}
+.innerContainer{
+    width: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0 2rem 0;
+
+    font-size: 14px;
+    font-weight: medium;
+}
+
+.brandName{
+    color: white;
+    font-size: 14px;
+}
+
+.items{
+    display: flex;
+    gap: 5rem;
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    font-size: 12px;
+}
+
+.item a:first-child{
+    color: white;
+}
+
+.imageContainer{
+    display: flex;
+    gap: 20px;
+}
+
+.item a:hover{
+    color: white;
+}

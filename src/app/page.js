@@ -1,95 +1,74 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+"use client";
+import styles from "./page.module.css";
+import Hero from "@/components/hero/Hero";
+import Job from "@/components/job/Job";
+import React, { useEffect, useRef, useState } from "react";
+
+const videos = [
+  {
+    id: 1,
+    poster:"https://cdn.akamai.steamstatic.com/valvesoftware/images/videos/hero_01_fullsize.jpg",
+    webm: "https://cdn.akamai.steamstatic.com/valvesoftware/images/videos/hero_01_small.webm",
+    mp4: "https://cdn.akamai.steamstatic.com/valvesoftware/images/videos/hero_01_small.mp4",
+  },
+  {
+    id: 2,
+    poster:"https://cdn.akamai.steamstatic.com/valvesoftware/images/videos/hero_02_fullsize.jpg",
+    webm: "https://cdn.akamai.steamstatic.com/valvesoftware/images/videos/hero_02_small.webm",
+    mp4: "https://cdn.akamai.steamstatic.com/valvesoftware/images/videos/hero_02_small.mp4",
+  },
+  {
+    id: 3,
+    poster:"https://cdn.akamai.steamstatic.com/valvesoftware/images/videos/hero_03_fullsize.jpg",
+    webm: "https://cdn.akamai.steamstatic.com/valvesoftware/images/videos/hero_03_small.webm",
+    mp4: "https://cdn.akamai.steamstatic.com/valvesoftware/images/videos/hero_03_small.mp4",
+  },
+];
 
 export default function Home() {
+  const [video, setvideo] = useState(0);
+
+  const videoEl = useRef(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setvideo((prev) => (prev >= 2 ? 0 : prev+1));
+      console.log(video)
+      videoEl &&
+      videoEl.current && videoEl.current.load()
+      videoEl &&
+      videoEl.current &&
+      videoEl.current.play().catch((error) => {
+        console.error("Error attempting to play", error);
+      })
+    }, 15000);
+   
+    //Clearing the interval
+    return ()=>clearInterval(interval)
+  }, [video]);
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
+    <div className={styles.container}>
+    <div className={styles.backgroundOpacity}/>
+      <video
+        ref={videoEl}
+        autoPlay
+        loop
+        muted
+        className={styles.video}
+        poster={videos[video].poster}
+      >
+        <source
+          src={videos[video].webm}
+          type="video/webm"
         />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+        <source
+          src={videos[video].mp4}
+          type="video/mp4"
+        />
+      </video>
+      <Hero />
+      <Job />
+    </div>
+  );
 }
