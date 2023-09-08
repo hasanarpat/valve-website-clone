@@ -1,32 +1,45 @@
-
 .jobTitle{
-    font-size: 54px;
+    font-size: 72px;
     font-weight: bold;
     cursor: pointer;
     color: #f74843;
     transition: all ease;
     width: max-content;
+    width: 70%;
+    margin: auto;
     margin-bottom: 4rem;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
 }
 
 .jobTitle:hover{
     color: white;
 }
 
+.descNone{
+    display: none;
+}
+
 .descContainer{
-    margin-top: 2rem;
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    margin-top: 2rem;
     color: rgb(105, 102, 102);
     font-weight: bold;
     background: #fff;
-    padding: 5rem 2rem;
-    font-size: 14px;
+    font-size: 16px;
+    padding-inline: 15%;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    -webkit-transition: all 1 linear;
+    -moz-transition: all 1 linear;
+    transition: all 1s linear;
 }
 
 .desc{
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .links{

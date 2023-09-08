@@ -6,6 +6,7 @@ import Link from "next/link";
 const Navbar = () => {
   return (
     <div className={styles.container}>
+      <div className={styles.innerContainer}>
       <Link href="/">
         <Image
           className={styles.logo}
@@ -15,6 +16,7 @@ const Navbar = () => {
           height={32}
         />
       </Link>
+      </div>
     </div>
   );
 };

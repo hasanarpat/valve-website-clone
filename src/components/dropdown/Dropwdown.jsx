@@ -10,12 +10,14 @@ const Dropwdown = (props) => {
 
   const handleDropdown = ()=>{
     setDropdown(prev=>!prev)
+    console.log(dropdown)
   }
+  
   return (
     <div className={styles.container}>
       <div className={styles.job}>
         <h1 className={styles.jobTitle} onClick={handleDropdown}>{title}</h1>
-        <div className={styles.descContainer} style={dropdown ? {display:"flex"} :{display:"none"}}>
+        <div className={dropdown ? styles.descContainer : styles.descNone}>
           <h2 className={styles.subTitle}>We're always hiring.</h2>
           <p className={styles.desc}>
             We hire people with broad skill sets who also exhibit deep
@@ -24,7 +26,7 @@ const Dropwdown = (props) => {
           </p>
           <div className={styles.links}>
             {links.length>0 && links.map((link,i)=>(
-              <Link href="#" key={i}>{links[i]}</Link>
+              <Link href="#" key={i} className={styles.link}>{links[i]}</Link>
             ))
             }
           </div>

@@ -1,13 +1,12 @@
 .container{
-    width: 70%;
-    margin: auto;
     background: transparent;
     height: 7rem;
     display: flex;
     align-items: center;
 
 }
-
-.logo{
-
+.innerContainer{
+    
+    width: 70%;
+    margin: auto;
 }
