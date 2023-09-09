@@ -180,7 +180,7 @@ const About = () => {
           <video
             className={styles.video}
             ref={videoEl}
-            playsinline
+            playsInline
             autoPlay
             muted
             loop
@@ -266,7 +266,6 @@ const About = () => {
           src="https://cdn.akamai.steamstatic.com/valvesoftware/images/about/controller-protos.jpg"
           width={1210}
           height={820}
-          objectFit="cover"
         />
       </div>
       <div className={styles.itemContainer}>
@@ -285,8 +284,8 @@ const About = () => {
         <div className={styles.secondItem}>
           <video
             ref={videoElSec}
-            playsinline
-            autoplay
+            playsInline
+            autoPlay
             muted
             loop
             poster="https://cdn.akamai.steamstatic.com/valvesoftware/images/videos/hardware-hmd.jpg"
